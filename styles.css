@@ -2,6 +2,9 @@
   margin: 0;
   pading: 0;
   box-sizing: border-box;
+  ul {
+    list-style: none;
+  }
 }
 
 body {
@@ -12,6 +15,11 @@ header {
   background-color: #eeeeee;
   padding: 16px;
   width: 100%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .container {
@@ -24,7 +32,6 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  list-style: none;
 }
 
 .nav-bar__item a {
@@ -74,6 +81,29 @@ header {
   height: 37px;
 }
 
+main {
+  padding-top: 120px;
+}
+
+.container__mosaic {
+  /* padding: 20px; */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.mosaic-grid {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+
+  grid-template-columns: 1fr;
+}
+
+.mosaic-grid img {
+  width: 100%;
+  height: auto;
+}
 
 @media (min-width: 768px) {
   .container {
@@ -85,4 +115,40 @@ header {
     flex-direction: row;
     gap: 30px;
   }
+
+  .mosaic-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 30px;
+  }
+
+  .mosaic-grid li:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .mosaic-grid li:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .mosaic-grid li:nth-child(3) {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+  }
+
+  .mosaic-grid li:nth-child(4) {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .mosaic-grid li:nth-child(5) {
+    grid-column: 3;
+    grid-row: 2;
+  }
 }
+
+
+
+
+
