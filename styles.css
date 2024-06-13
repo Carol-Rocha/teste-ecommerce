@@ -16,6 +16,8 @@ a {
   text-decoration: none;
 }
 
+/* Estilos do header */
+
 header {
   background-color: #eeeeee;
   padding: 16px;
@@ -25,6 +27,11 @@ header {
   top: 0;
   left: 0;
   z-index: 1;
+  transition: padding 0.3s;
+}
+
+header.expanded {
+  padding: 16px 16px 80px; /* Aumenta o padding inferior quando o menu está ativo */
 }
 
 .container {
@@ -33,6 +40,32 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+
+#menu-button {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+#menu-button img {
+  width: 30px;
+  height: 30px;
+}
+
+.nav-bar {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 80px; /* Ajusta a posição para estar abaixo do botão de menu */
+  left: 0;
+  right: 0;
+  background-color: #eeeeee;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
 .nav-bar__list {
   display: flex;
   flex-direction: column;
@@ -46,7 +79,7 @@ header {
 }
 
 .nav-bar__container {
-  display: flex;
+  display: none;
   gap: 20px;
 }
 
@@ -86,6 +119,20 @@ header {
   height: 37px;
 }
 
+.nav-bar.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nav-bar__container.active {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Estilos do conteudo principal */
+
 main {
   padding-top: 180px;
 }
@@ -109,6 +156,8 @@ main {
   width: 100%;
   height: auto;
 }
+
+/* Estilos do card */
 
 .container__showcase {
   display: flex;
@@ -183,6 +232,8 @@ main {
   cursor: pointer;
 }
 
+/* Estilos do footer */
+
 footer {
   background-color: #404040;
   padding: 24px 0;
@@ -233,28 +284,48 @@ span {
   font-weight: bold;
 }
 
-.security-container, .payment-container{
+.security-container,
+.payment-container {
   display: flex;
   flex-direction: column;
   gap: 10px;
-} 
+}
 
 .security-seals {
   display: flex;
   flex-direction: row;
   gap: 15px;
-
 }
 
-.security-container img, .payment-container img {
+.security-container img,
+.payment-container img {
   border-radius: 2px;
 }
 
 @media (min-width: 768px) {
+  #menu-button {
+    display: none;
+  }
+
   .container,
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  .nav-bar {
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .show-item-mobile {
+    display: none;
+  }
+
+  .nav-bar,
+  .nav-bar__container {
+    display: flex;
   }
 
   .nav-bar__list {
