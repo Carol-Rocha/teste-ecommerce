@@ -1,6 +1,7 @@
+/* Estilos globais */
 * {
   margin: 0;
-  pading: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -17,12 +18,10 @@ a {
 }
 
 /* Estilos do header */
-
 header {
   background-color: #eeeeee;
   padding: 16px;
   width: 100%;
-
   position: fixed;
   top: 0;
   left: 0;
@@ -31,10 +30,10 @@ header {
 }
 
 header.expanded {
-  padding: 16px 16px 80px; /* Aumenta o padding inferior quando o menu está ativo */
+  padding: 16px 16px 80px; 
 }
 
-.container {
+.container-header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -58,12 +57,12 @@ header.expanded {
   flex-direction: column;
   gap: 10px;
   position: absolute;
-  top: 80px; /* Ajusta a posição para estar abaixo do botão de menu */
+  top: 80px; 
   left: 0;
   right: 0;
   background-color: #eeeeee;
   padding: 20px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .nav-bar__list {
@@ -114,7 +113,6 @@ header.expanded {
   border: none;
   background-color: transparent;
   cursor: pointer;
-
   width: 41.25px;
   height: 37px;
 }
@@ -131,11 +129,9 @@ header.expanded {
   gap: 10px;
 }
 
-/* Estilos do conteudo principal */
-
+/* Estilos do conteúdo principal */
 main {
-  padding-top: 180px;
-
+  padding-top: 120px;
 }
 
 .container__mosaic {
@@ -149,7 +145,6 @@ main {
   display: grid;
   gap: 10px;
   padding: 0;
-
   grid-template-columns: 1fr;
 }
 
@@ -158,12 +153,11 @@ main {
   height: auto;
 }
 
-/* Estilos do card */
-
+/* Estilos da showcase e produto */
 .divider {
   position: relative;
   width: 100%;
-  border: 0.5px solid #CFCFCF;
+  border: 0.5px solid #cfcfcf;
 }
 
 .glow {
@@ -171,7 +165,7 @@ main {
   width: 200px;
   left: calc(50% - 100px);
   top: -2px;
-  border: 2px solid #A4BEBF;
+  border: 2px solid #a4bebf;
   animation: glow 1.5s infinite;
 }
 
@@ -181,42 +175,59 @@ main {
   justify-content: center;
   align-items: center;
   gap: 20px;
-  /* width: 100%; */
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 0 10px;
+}
+
+.showcase-wrapper {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  width: 100%;
 }
 
 .showcase-list {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   gap: 20px;
+  padding: 20px 0;
+  width: max-content;
+  margin: 0;
 }
 
 .product-card {
-  padding: 5px;
-  width: 268px;
+  display: inline-block;
+  width: 280px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+
 }
 
 .product-card img {
   width: 100%;
-  height: 280px;
-  align-self: center;
+  height: auto;
+  border-radius: 8px;
 }
 
 .product-info {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   align-items: start;
+  padding: 10px 0;
 }
 
-.product-description {
+.product-description  {
   color: #404040;
   font-size: 1rem;
-  word-break: break-all;
+  font-weight: regular;
 }
 
-.product-price-old {
+.product-price-old,  .product-price-old del{
   color: #484848;
   font-size: 0.875rem;
   font-weight: light;
@@ -237,31 +248,55 @@ main {
   color: #000000;
   font-size: 1rem;
   font-weight: bold;
-
   border: none;
   background-color: #a4bebf;
-
   padding: 10px 20px;
   width: 100%;
   align-self: center;
-
   cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Esconde a barra de rolagem no Chrome, Safari e Opera */
+
+.arrow-left,
+.arrow-right {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  display: none;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.arrow-left img,
+.arrow-right img {
+  width: 30px;
+  height: 30px;
+}
+
+.arrow-left {
+  left: 0;
+}
+
+.arrow-right {
+  right: 0;
 }
 
 /* Estilos do footer */
-
 .divider-footer {
   position: relative;
   width: 100%;
-  border: 0.5px solid #CFCFCF;
+  border: 0.5px solid #cfcfcf;
 }
 
 .divider-footer-glow {
   position: absolute;
   top: -2px;
   width: 100px;
-
-  border: 2px solid #32BCAD;
+  border: 2px solid #32bcad;
 }
 
 footer {
@@ -288,14 +323,13 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 25px;
-  /* background-color: red; */
-  }
-  
-  .contact-container ul {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    padding: 0;
+}
+
+.contact-container ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
 }
 
 .contact-container li a,
@@ -333,13 +367,19 @@ span {
   border-radius: 2px;
 }
 
+/* Estilos para telas maiores */
 @media (min-width: 768px) {
-
   #menu-button {
     display: none;
   }
 
-  .container,
+  main {
+    padding-top: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .container-header,
   .footer-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -365,10 +405,9 @@ span {
     gap: 30px;
   }
 
-  main {
-    padding-top: 120px;
-    max-width: 1200px;
-    margin: 0 auto;
+  .arrow-left,
+  .arrow-right {
+    display: block;
   }
 
   .mosaic-grid {
