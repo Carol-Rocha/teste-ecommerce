@@ -135,6 +135,7 @@ header.expanded {
 
 main {
   padding-top: 180px;
+
 }
 
 .container__mosaic {
@@ -159,20 +160,35 @@ main {
 
 /* Estilos do card */
 
+.divider {
+  position: relative;
+  width: 100%;
+  border: 0.5px solid #CFCFCF;
+}
+
+.glow {
+  position: absolute;
+  width: 200px;
+  left: calc(50% - 100px);
+  top: -2px;
+  border: 2px solid #A4BEBF;
+  animation: glow 1.5s infinite;
+}
+
 .container__showcase {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 20px;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .showcase-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 20px;
 }
 
 .product-card {
@@ -234,6 +250,20 @@ main {
 
 /* Estilos do footer */
 
+.divider-footer {
+  position: relative;
+  width: 100%;
+  border: 0.5px solid #CFCFCF;
+}
+
+.divider-footer-glow {
+  position: absolute;
+  top: -2px;
+  width: 100px;
+
+  border: 2px solid #32BCAD;
+}
+
 footer {
   background-color: #404040;
   padding: 24px 0;
@@ -259,12 +289,13 @@ footer {
   flex-direction: column;
   gap: 25px;
   /* background-color: red; */
-}
-
-.contact-container ul {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  }
+  
+  .contact-container ul {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0;
 }
 
 .contact-container li a,
@@ -303,6 +334,7 @@ span {
 }
 
 @media (min-width: 768px) {
+
   #menu-button {
     display: none;
   }
@@ -335,6 +367,8 @@ span {
 
   main {
     padding-top: 120px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .mosaic-grid {
