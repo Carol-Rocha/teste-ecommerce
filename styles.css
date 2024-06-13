@@ -196,7 +196,7 @@ main {
 .product-card {
   display: inline-block;
   width: 280px;
-  background-color: #fff;
+  background-color: var(--gray-100);
   border-radius: 8px;
   padding: 10px;
 }
